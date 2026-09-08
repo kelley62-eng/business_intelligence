@@ -1,0 +1,35 @@
+---
+title: "Class 04- R Data Structure"
+author: "Kenneth Kelley"
+date: "2026-09-02"
+output: html_document
+    toc: true
+    toc_float: true
+    number_sections: true
+    code_folding: true
+    code_download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+job = list(
+  title   = "Research Data Scientist, Magic Eye",
+  company = "Google",
+  salary  = list(min = 147000, max = 210000)
+)
+str(job)
+
+job$company
+
+job$salary$max
+
+job[["salary"]][["max"]]
+
+names(job)
+
+install.packages("tidyverse")
+library(tidyverse)
+
+?readr
