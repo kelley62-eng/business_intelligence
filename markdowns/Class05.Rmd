@@ -7,7 +7,7 @@ output:
     toc: true
     toc_float: true
     numbered_sections: true
-    code_folding: true
+    code_folding: show
     code_download: true
 ---
 
@@ -36,11 +36,7 @@ r$isa_sections[r$room == "2050"]             # 11
 getwd()
 
 ##read excel - I have no idea what happened here and why the first read excel didnt work
-```{r}
-occupation = readxl::read_excel(
-  path = "Data/occupation.xlsx", sheet = "Table 1.4", skip = 1
-)
-```
+
 occupation = readxl::read_excel(
   path = "Data/occupation.xlsx", sheet = "Table 1.4", skip = 1
 )
