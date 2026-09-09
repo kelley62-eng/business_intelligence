@@ -1,0 +1,75 @@
+---
+title: "Class05"
+author: "Kenneth Kelley"
+date: "2026-09-09"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    numbered_sections: true
+    code_folding: true
+    code_download: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Game 01: find your seat
+
+campus = jsonlite::fromJSON(
+  "https://isa401-find-your-seat.vercel.app/campus.json")
+  
+fsb = campus[['Farmer']]
+fsb$code
+
+fsb$floors
+fsb$floors[[3]]$sections
+
+campus = jsonlite::fromJSON(
+  "https://isa401-find-your-seat.vercel.app/campus.json")
+campus[["Farmer"]]$code                      # "MUFSB"
+campus$Farmer$floors[["2"]]$sections        # 80
+r = campus$Farmer$floors[["2"]]$rooms
+r$isa_sections[r$room == "2050"]             # 11
+
+getwd()
+
+##read excel - I have no idea what happened here and why the first read excel didnt work
+```{r}
+occupation = readxl::read_excel(
+  path = "Data/occupation.xlsx", sheet = "Table 1.4", skip = 1
+)
+```
+occupation = readxl::read_excel(
+  path = "Data/occupation.xlsx", sheet = "Table 1.4", skip = 1
+)
+
+occupation = readxl::read_excel(
+  path = "Data/occupation.xlsx", sheet = "Table 1.4", skip = 1
+)
+
+occupation = occupation[-c(32,33,34),]
+
+
+## JSON Data 
+
+json_url = paste0(
+  "https://data.cincinnati-oh.gov/",
+  "resource/rvmt-pkmq.json?$limit=100")
+crashes_json = jsonlite::fromJSON(json_url)
+dplyr::glimpse(
+  crashes_json[, c("crashdate", "dayofweek",
+                   "crashseverity", "age")])
+
+logins = readr::read_csv("https://isa401-import-heist.vercel.app/api/stage1?seat=R3-6&s=A")
+
+
+log = jsonlite::fromJSON("https://isa401-import-heist.vercel.app/api/stage2?key=smithj31&seat=R3-6&s=A")
+log$events$action
+logevents = log$events$action
+sum(logevents == "DOWNLOAD")
+
+
+jsonlite::fromJSON("https://isa401-import-heist.vercel.app/api/finish?code=6&seat=R3-6&s=A")
+
