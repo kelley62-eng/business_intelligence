@@ -2,3 +2,7 @@
 .Rhistory
 .RData
 .Ruserdata
+.Renviron
+.DS_Store
+/apps/midwest_airbnb_chat/.shinychat
+/apps/midwest_airbnb_chat/shiny_bookmarks
