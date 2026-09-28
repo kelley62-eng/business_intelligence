@@ -1,0 +1,28 @@
+---
+title: "Airbnb Market Analysis"
+author: "Den Kelley"
+date: "`r Sys.Date()`"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = FALSE, warning = FALSE)
+```
+
+## Load the data
+
+```{r load-data}
+con = DBI::dbConnect(RSQLite::SQLite(), "../Data/midwest_airbnb_extended.db")
+listings     = DBI::dbReadTable(con, "listings") |> tibble::as_tibble()
+availability = DBI::dbReadTable(con, "availability_monthly") |> tibble::as_tibble()
+reviews      = DBI::dbReadTable(con, "reviews_monthly") |> tibble::as_tibble()
+DBI::dbDisconnect(con)
+
+# Quick check: row counts should be 14,887 / 158,741 / 142,388
+nrow(listings)
+nrow(availability)
+nrow(reviews)
+```
